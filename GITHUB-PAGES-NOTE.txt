@@ -1,0 +1,1 @@
+GitHub Actions workflows must be stored under .github/workflows/. This flat archive intentionally has no folders, so automatic GitHub Pages deployment is not configured. See README.md.

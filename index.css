@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root, [data-theme='profit'] {
+  --c-surface: 6 19 22;
+  --c-card: 13 35 41;
+  --c-accent: 52 245 197;
+  --c-ink: 236 253 245;
+  --c-muted: 127 161 168;
+  --c-border: rgba(52, 245, 197, 0.18);
+}
+[data-theme='loss'] {
+  --c-surface: 17 9 9;
+  --c-card: 31 17 18;
+  --c-accent: 255 77 45;
+  --c-ink: 255 138 117;
+  --c-muted: 158 136 136;
+  --c-border: rgba(255, 77, 45, 0.22);
+}
+html, body, #root { height: 100%; }
+body { @apply bg-surface text-ink antialiased; transition: background-color 500ms, color 500ms; }
+* { transition-property: background-color, border-color, color; transition-duration: 450ms; }
+@layer components {
+  .card { @apply bg-card rounded-xl2 border p-4; border-color: var(--c-border); }
+  .num { @apply font-mono tabular-nums tracking-tight; }
+  .btn { @apply rounded-xl2 px-4 py-2 font-medium active:opacity-70; }
+  .btn-primary { @apply btn bg-accent text-surface; }
+  .btn-ghost { @apply btn bg-transparent border; border-color: var(--c-border); color: var(--c-ink); }
+  .input { @apply w-full rounded-xl2 bg-black/30 px-3 py-2 text-ink outline-none border; border-color: var(--c-border); }
+  .label { @apply mb-1 block text-xs uppercase tracking-wider text-muted; }
+}
